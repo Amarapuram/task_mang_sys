@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management</title>
+</head>
+<body>
+    
+        {% for usr in admin %}
+        <h1>{{usr.a_name}}</h1>
+        <p>{{usr.a_email}}</p>
+        <p>{{usr.a_password}}</p>
+        <p>{{usr.a_status}}</p>
+        <p>{{usr.a_gender}}</p>
+        
+        {% endfor %}
+</body>
+</html>

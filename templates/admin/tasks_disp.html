@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management</title>
+</head>
+<body>
+        {% for tsk in task %}
+        <h1>{{tsk.T_name}}</h1>
+        <p>{{tsk.T_date}}</p>
+        <p>{{tsk.T_deadline}}</p>
+        <p>{{tsk.T_project}}</p>
+        <p>{{tsk.T_sender}}</p>
+        <p>{{tsk.T_reciever}}</p>
+        <p>{{T_status}}</p>
+        
+        {% endfor %}
+</body>
+</html>

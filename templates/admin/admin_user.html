@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management</title>
+</head>
+<body>
+    <h1>Hello,Admin!!!</h1>
+    <p>Following are the Users working under you.</p>
+    <p>***********************************************</p>
+        {% for usr in users %}
+        <h1>{{usr.U_name}}</h1>
+        <p>{{usr.U_email}}</p>
+        <p>{{usr.U_password}}</p>
+        <p>{{usr.U_status}}</p>
+        <p>{{usr.U_gender}}</p>
+        <button><a href="{{url_for('update_user',user_id =usr.U_id )}}">Update</a></button>
+        <button><a href="{{url_for('delete_user',user_id=usr.U_id)}}">Delete</a></button>
+        <p>***********************************************</p>
+        {% endfor %}
+</body>
+</html>

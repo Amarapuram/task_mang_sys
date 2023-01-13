@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}Task Management{% endblock %}
+
+{% block content %}
+    <h1>Task Management System</h1>
+    {% if user:  %}
+    <h1>{{current_user.id}}</h1>
+        
+    {% else %}
+        <h1>anonymous</h1>
+    {% endif %}
+    <P>Do you want to login??
+        <button><a href="{{url_for('login')}}">login</a></button>
+        
+    </P>
+    <p>
+        <button><a href="{{url_for('logout')}}">Logout</a></button>
+    </p>
+    <button><a href="{{url_for('admin')}}">Admin</a></button>
+
+    <button><a href="{{url_for('users')}}">users</a></button>
+
+    <button><a href="{{url_for('add_user')}}">add_users</a></button>
+
+    <button><a href="{{url_for('project')}}">Project</a></button>
+
+    <button><a href="{{url_for('add_project',admin_id=1)}}">Add_project</a></button>
+
+    <button><a href="{{url_for('task',project_id=1)}}">task</a></button>
+
+    <button><a href="{{url_for('add_task',project_id=1,admin_id=1)}}">a_task</a></button>
+
+    <button><a href="{{url_for('add_comment',task_id=1,project_id=1,admin_id=1)}}">cmt_tsk</a></button>
+
+    <button><a href="{{url_for('comment',task_id=1,admin_id=1)}}">Comment</a></button>
+
+    <button><a href="{{url_for('user_project')}}">user_prj</a></button>
+
+    <button><a href="{{url_for('user_task')}}">user_task</a></button>
+
+    <button><a href="{{url_for('user_add_comment',task_id=1)}}">add-cmt</a></button>
+
+    <button><a href="{{url_for('user_comment',task_id=1)}}">cmt</a></button>
+
+
+    <p><b>SELECT ANY OF THE ABOVE TO PERFORM THE RESPECTIVE ACTION</b> </p>
+    <p>THANK YOU !!!!</p>
+{% endblock %}
+    
+
