@@ -1,20 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Management</title>
-</head>
-<body>
-    
-        {% for usr in admin %}
-        <h1>{{usr.a_name}}</h1>
-        <p>{{usr.a_email}}</p>
-        <p>{{usr.a_password}}</p>
-        <p>{{usr.a_status}}</p>
-        <p>{{usr.a_gender}}</p>
-        
-        {% endfor %}
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Task Management{% endblock %}
+
+{% block content %}
+<div class="table-responsive project_table">
+    <table class="table">
+        <thead class="table_header">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Status</th>
+                <th>Gender</th>
+                <th>Update</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for usr in admin %}
+            <tr class="table_row">
+                 <td>{{usr.a_name}}</td>
+                <td>{{usr.a_email}}</td>
+                <td>{{usr.a_status}}</td>
+                <td>{{usr.a_gender}}</td>
+                <td><button class="btn btn-light" type="submit"><a href="{{url_for('update_admin',admin_id =usr.a_id )}}">Update</a></button></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div>
+{% endblock %}

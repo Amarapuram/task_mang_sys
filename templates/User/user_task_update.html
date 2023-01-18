@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Task Management{% endblock %}
+
+{% block content %}
+<h1 style="text-align: center;margin-top: 120px;font-family: Adamina, serif;"> Update Task</h1>
+    <form method="POST" action="{{url_for('user_update_task',task_id=tsk.Task_id)}}">
+        <div class="row">
+            <div class="col">
+                <input class="form-control task_form" name="T_status" type="text" placeholder="Status:"value="{{tsk.T_status}}"  >
+
+            </div>
+        </div>
+        <div class="submit">
+                <button class="btn btn-dark submit_button" type="submit">Submit</button>            
+        </div>
+    </form>
+{% endblock %}

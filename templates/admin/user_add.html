@@ -1,22 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Hello,Admin!!!</h1>
-    <p><b>Please Fill the below form to add a new USER👍</b></p>
-    <form action="/admin/user/add" method="post">
-        <input type="text" name="U_name" placeholder="name"/>
-        <input type="text" name="U_email" placeholder="email"/>
-        <input type="text" name="U_password" placeholder="password"/>
-        <input type="text" name="U_status" placeholder="status"/>
-        <input type="text" name="U_gender" placeholder="gender"/>
-        <button type="submit">Submit</button>
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<h1 class="form_heading">User Register</h1>
+        <form method="post" action="{{url_for('add_user',task_id=task_id)}}">
+        <div class="row">
+            <div class="col">
+                <input class="form-control register" name="name" type="text" placeholder="Name:"> 
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input class="form-control register" name="email" type="email" placeholder="Email:"> 
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input class="form-control register" name="password" type="password" placeholder="Password:"> 
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input class="form-control register"  name="status" type="text" placeholder="status:"> 
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label for="female">female</label><input type="radio" name="gender" id="female" value="F" >
+                <label for="male">male</label><input type="radio" name="gender" id="male" value="M">
+            </div>
+        </div>
+        
+        <div class="submit">
+                <button class="btn btn-primary submit_button">Register</button>
+            
+                
+        </div>            
     </form>
-    
-</body>
-</html>
+{% endblock %}

@@ -1,19 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Management</title>
-</head>
-<body>
-        {% for cmt in users %}
-        <h1>{{cmt.C_by}}</h1>
-        <p>{{cmt.C_to}}</p>
-        <p>{{cmt.C_time}}</p>
-        <p>{{cmt.C_text}}</p>
-        <button><a href="{{url_for('add_comment',T_id=cmt.T_id )}}">Add</a></button>
-        <button><a href="{{url_for('delete_comment',P_id=cmt.T_id)}}">Delete</a></button>
-        {% endfor %}
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Task Management{% endblock %}
+
+{% block content %}
+    <section>
+        <div class="table-responsive project_table">
+            <table class="table">
+                <thead class="table_header">
+                    <tr>
+                        <th>BY</th>
+                        <th>TO</th>
+                        <th>TIME</th>
+                        <th>COMMENT</th>
+                        <th>ADD</th>
+                        <th>DELETE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for cmt in comment %}
+                    <tr class="table_row">
+                        <td>{{cmt.C_by}}</td>
+                        <td>{{cmt.C_to}}</td>
+                        <td>{{cmt.C_time}}</td>
+                        <td>{{cmt.C_text}}</td>
+                        <td><button class="btn btn-warning" type="button"><a href="{{url_for('add_comment',task_id=cmt.Task_id )}}">Add</a></button></td>
+                        <td><button class="btn btn-warning" type="button"><a href="{{url_for('delete_comment',task_id=cmt.Task_id,Comment_id = cmt.C_id)}}">Delete</a></button></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+{% endblock %}

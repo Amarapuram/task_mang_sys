@@ -1,0 +1,143 @@
+body{
+    /* background-color: deepskyblue; */
+    background-size:cover;
+}
+
+.login{
+    width: 50%;
+    margin: auto;
+    margin-top: 2rem;
+    font-family: Adamina, serif;
+}
+
+.submit_button{
+    margin-left: 43.75Rem;
+    margin-top: 2rem;
+    font-family: Adamina, serif;
+}
+
+.register{
+    width: 50%;
+    margin: auto;
+    margin-top: 2rem;
+    font-family: Adamina, serif;
+}
+
+.project_form{
+    margin-bottom: 20px;
+    width: 50%;
+    font-family: 'Abhaya Libre', serif;
+    margin-left: 250px;
+}
+.heading{
+    text-align: center;
+    color: chartreuse;
+    margin-top: 5rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.task_form{
+    margin-bottom: 20px;
+    width: 50%;
+    font-family: 'Abhaya Libre', serif;
+    margin-left: 350px;
+}
+
+.cmt_form{
+    width: 60%;
+    margin-top: 20px;
+    margin-left: 180px;
+}
+
+.form_heading{
+    text-align: center;
+    font-family: 'Abhaya Libre', serif;  
+    margin-top: 122px;
+    color: chartreuse;
+    
+}
+
+/* **************************Table CSS************************************************* */
+.project_table{
+    border-width: 5px;
+    border-color: black;
+    width: 60%;
+    margin:10rem auto;
+    background-color: white;
+}
+
+.table_header{
+    border-width: 2px;;
+    border-color: black;
+}
+
+.table_row{
+    border-width: 2px;
+    border-color: black;
+    
+}
+/* *******************************Admin_page************************************ */
+
+/* .add_project{
+    
+} */
+
+.add_user{
+    width: 60px;
+    height: 60px;
+    margin-left: 25rem;
+}
+
+imag{
+    
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+}
+
+.assign_task_page{
+    margin: 20rem;
+    margin-bottom: 5rem;
+    background-color: rgb(119, 186, 31);
+    align-items: center;
+    width: 30%;
+    height: 40%;
+    position: relative;
+    left: 15rem;
+    font-size: 35px;
+    bottom: 15rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+
+.check_boxs{
+    margin-left: 8rem;
+}
+
+.assign_button{
+    margin-left: 42rem;
+    position: relative;
+    bottom: 20rem;
+    top: -18rem;
+    width: 15%;
+}
+
+a {
+    text-decoration: none;
+    color:crimson
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
