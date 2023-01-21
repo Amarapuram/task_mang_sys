@@ -1,5 +1,4 @@
 body{
-    /* background-color: deepskyblue; */
     background-size:cover;
 }
 
@@ -15,37 +14,51 @@ body{
     margin-top: 2rem;
     font-family: Adamina, serif;
 }
+.add_prj_button{
+    margin-left: 43.75Rem;
+    margin-top: -10rem;
+    font-family: Adamina, serif;
+}
+
+.radio_button{
+    margin-left: 23rem;
+    margin-top: 1rem;
+    font-size: larger;
+    font-weight: 600;
+}
 
 .register{
     width: 50%;
     margin: auto;
     margin-top: 2rem;
     font-family: Adamina, serif;
+    color: crimson;
 }
 
 .project_form{
     margin-bottom: 20px;
     width: 50%;
     font-family: 'Abhaya Libre', serif;
-    margin-left: 250px;
+    margin-left: 25rem;
+    margin-top: 1.5rem;
 }
 .heading{
     text-align: center;
     color: chartreuse;
-    margin-top: 5rem;
+    margin-top: 7rem;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 .task_form{
     margin-bottom: 20px;
     width: 50%;
     font-family: 'Abhaya Libre', serif;
-    margin-left: 350px;
+    margin-left: 25rem;
 }
 
 .cmt_form{
-    width: 60%;
+    width: 50%;
     margin-top: 20px;
-    margin-left: 180px;
+    margin-left: 25rem;
 }
 
 .form_heading{
@@ -77,24 +90,40 @@ body{
 }
 /* *******************************Admin_page************************************ */
 
-/* .add_project{
-    
-} */
+.add_project{
+    width: 18rem;
+    height: 18rem;
 
+    margin-top: 3rem;
+}
+.user{
+    display: flex;
+    margin-top: 2rem;
+}
 .add_user{
-    width: 60px;
-    height: 60px;
-    margin-left: 25rem;
+    width: 18rem;
+    height: 18rem;
+    margin-top: 3rem;
+    margin-right: 38rem;
 }
 
-imag{
-    
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
+.imag{
+    width: 18rem;
+    height: 14rem;
 }
-
+.btn-class{
+    padding: 8px;    
+}
+.btn-class1{
+    padding: 8px;    
+}
+.add-btn{
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+.add-btn2{
+    margin-right: 2rem;
+}
 .assign_task_page{
     margin: 20rem;
     margin-bottom: 5rem;
@@ -112,14 +141,14 @@ imag{
 
 .check_boxs{
     margin-left: 8rem;
+    width: 7rem;
 }
 
 .assign_button{
-    margin-left: 42rem;
-    position: relative;
+   
     bottom: 20rem;
     top: -18rem;
-    width: 15%;
+    width: 180%;
 }
 
 a {
@@ -130,6 +159,7 @@ a {
 table {
     border-collapse: collapse;
     width: 100%;
+    background-color: chartreuse;
 }
 
 th, td {
@@ -140,4 +170,35 @@ th, td {
 
 th {
     background-color: #f2f2f2;
+}
+
+.user_main_div{
+    width: 25%;
+    border-radius: 5%;
+    margin-left: 3rem;
+    margin-top: 5rem;
+}
+
+.userdiv{
+    width: 5rem;
+}
+
+.my_image{
+    width: 18rem;
+    height: 14rem;
+    /* border-radius: 100%; */
+    margin-left: 2.5rem;
+    margin-top: 5rem;
+}
+
+.image{
+    
+    margin-left: 7rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    width: 10rem;
+}
+.navbar_color{
+    background-color: aqua;
+    height: 5rem;
 }

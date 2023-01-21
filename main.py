@@ -184,10 +184,9 @@ def add_task(admin_id,project_id):
     cur = mysql.connection.cursor()
     if request.method == "POST":
         T_name = request.form.get("name")
-        T_date = request.form.get("startdate")
         T_deadline = request.form.get("deadline")
         T_status = request.form.get("status")
-        cur.execute("INSERT INTO task (T_name,T_date,T_deadline,T_status,T_P_id,a_id) VALUES (%s,%s,%s,%s,%s,%s)",(T_name,T_date,T_deadline,T_status,project_id,admin_id))
+        cur.execute("INSERT INTO task (T_name,T_deadline,T_status,T_P_id,a_id) VALUES (%s,%s,%s,%s,%s)",(T_name,T_deadline,T_status,project_id,admin_id))
         mysql.connection.commit()
         return redirect(url_for("project"))
     return render_template("admin/add_task.html",project_id=project_id,admin_id=admin_id)
@@ -195,6 +194,7 @@ def add_task(admin_id,project_id):
 @app.route("/admin/assign/<int:task_id>",methods=["GET","POST"])
 def assign_task(task_id):
     cur = mysql.connection.cursor()
+    admin_id = session.get("id")
     if request.method == "POST":
         users = request.form.getlist('users')
         for user in users:
@@ -204,9 +204,9 @@ def assign_task(task_id):
         task = cur.fetchone()
         project_id = task["T_P_id"]
         return redirect(url_for("task",project_id=project_id))
-    cur.execute("SELECT * from user")
+    cur.execute(f"SELECT * from user where U_a_id={admin_id}")
     users = cur.fetchall()
-    return render_template("admin/add_user_task.html",users = users,task_id=task_id)
+    return render_template("admin/add_user_task.html",users = users,task_id=task_id,admin_id=admin_id)
 
 # select * 
 # from user_task,task,project 

@@ -2,17 +2,11 @@
 {% block title %}ADD Task{% endblock %}
 
 {% block content %}
-    <h1 style="text-align: center;margin-top: 120px;font-family: Adamina, serif;">Add New Task</h1>
+    <h1 class="heading">Add New Task</h1>
     <form method="POST" action="{{url_for('add_task',project_id=project_id,admin_id=admin_id)}}">
         <div class="row">
             <div class="col">
                 <input class="form-control task_form" name="name" type="text" placeholder="Project Name:" >
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <input class="form-control task_form" name="startdate" type="date" placeholder="startdate:" >
-
             </div>
         </div>
         <div class="row">
