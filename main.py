@@ -287,9 +287,10 @@ def user_project():
 @app.route("/user/project/tasks",methods=["GET"])
 def user_task():
     cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM task,user_task,user WHERE task.Task_id = user_task.Task_id AND user_task.U_id = user.U_id")
+    user_id = session.get("id")
+    cur.execute(f"SELECT * FROM task,user_task,user WHERE task.Task_id = user_task.Task_id AND user.U_id=user_task.U_id AND user.U_id={user_id}")
     project = cur.fetchall()
-    return render_template("User/user_tasks.html",project=project)
+    return render_template("User/user_tasks.html",project=project,user_id=user_id)
 #user_task_update
 
 @app.route("/user/project/task/update/<int:task_id>",methods=["GET","POST"])
@@ -388,3 +389,4 @@ def admin_register():
 
 if __name__ == '__main__':
     app.run(debug=True)
+    

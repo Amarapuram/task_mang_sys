@@ -3,6 +3,8 @@
 {% block title %}Task Management{% endblock %}
 
 {% block content %}
+<button class="btn btn-light home_button" type="button"><a href="{{url_for('home',admin_id=admin_id)}}">Home</a></button>
+<h1 class="heading">Here are your Projects</h1>
 <div class="table-responsive project_table">
     <table class="table">
         <thead class="table_header">
@@ -33,7 +35,7 @@
 </div>
 <div>
     <button class="btn btn-light add_prj_button" type="button"><a href="{{url_for('add_project',admin_id=admin_id)}}">Add Project</a></button>
-
 </div>
+
 
 {% endblock %}

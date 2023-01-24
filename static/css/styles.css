@@ -8,11 +8,14 @@ body{
     margin-top: 2rem;
     font-family: Adamina, serif;
 }
-
+.btn{
+    background-color: #FFC93C;
+}
 .submit_button{
     margin-left: 43.75Rem;
     margin-top: 2rem;
     font-family: Adamina, serif;
+    
 }
 .add_prj_button{
     margin-left: 43.75Rem;
@@ -25,6 +28,7 @@ body{
     margin-top: 1rem;
     font-size: larger;
     font-weight: 600;
+    color: #83ff3c;
 }
 
 .register{
@@ -45,8 +49,15 @@ body{
 .heading{
     text-align: center;
     color: chartreuse;
-    margin-top: 7rem;
+    margin-top: 3rem;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.heading3{
+    text-align: center;
+    color: chartreuse;
+    margin-top: 2rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
 }
 .task_form{
     margin-bottom: 20px;
@@ -81,6 +92,7 @@ body{
 .table_header{
     border-width: 2px;;
     border-color: black;
+    background-color: #5BC0F8;
 }
 
 .table_row{
@@ -94,7 +106,7 @@ body{
     width: 18rem;
     height: 18rem;
 
-    margin-top: 3rem;
+    margin-top: 5rem;
 }
 .user{
     display: flex;
@@ -159,7 +171,7 @@ a {
 table {
     border-collapse: collapse;
     width: 100%;
-    background-color: chartreuse;
+    background-color: #86E5FF;
 }
 
 th, td {
@@ -188,7 +200,7 @@ th {
     height: 14rem;
     /* border-radius: 100%; */
     margin-left: 2.5rem;
-    margin-top: 5rem;
+    margin-top: 6rem;
 }
 
 .image{
@@ -199,6 +211,12 @@ th {
     width: 10rem;
 }
 .navbar_color{
-    background-color: aqua;
+    background-color: #0081C9;
     height: 5rem;
+}
+
+.home_button{
+    margin-left: 90rem;
+    width: 5%;
+    margin-top: 1rem;
 }

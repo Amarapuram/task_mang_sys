@@ -3,8 +3,9 @@
 {% block title %}Task Management{% endblock %}
 
 {% block content %}
+<button class="btn btn-light home_button" type="button"><a href="{{url_for('home',admin_id=admin_id)}}">Home</a></button>
 <h1 class="heading">Hello,Admin!!!</h1>
-    <h3 class="heading">Following are the Users working under you.</h3>
+    <h3 class="heading3">Following are the Users working under you.</h3>
     <div class="table-responsive project_table">
         <table class="table">
             <thead class="table_header">
@@ -36,7 +37,8 @@
     </div>
     <div>
         {%if admin: %}
-        <button class="btn btn-light submit_button"><a href="{{url_for('add_user',admin_id=admin_id)}}">add-user</a></button>
+        <button class="btn btn-light submit_button"><a href="{{url_for('add_user',admin_id=admin_id)}}">Add user</a></button>
+        
         {% endif %}
     
     </div>

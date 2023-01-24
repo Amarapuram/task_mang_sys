@@ -3,6 +3,8 @@
 {% block title %}Task Management{% endblock %}
 
 {% block content %}
+<button class="btn btn-light home_button" type="button"><a href="{{url_for('home',admin_id=admin_id)}}">Home</a></button>
+<h1 class="heading">Here are your Tasks</h1>
 <div class="table-responsive project_table">
     <table class="table">
         <thead class="table_header">
@@ -28,7 +30,7 @@
                 <td>{{tsk.T_status}}</td>
                 <td><button class="btn btn-light" type="button" style="margin-left: 1px;"><a href="{{url_for('update_task',project_id=tsk.T_P_id,task_id=tsk.Task_id )}}">Update</a></button></td>
                 <td><button class="btn btn-light" type="button"><a href="{{url_for('delete_task',project_id=tsk.T_P_id,task_id=tsk.Task_id)}}">Delete</a></button></td>
-                <td><button class="btn btn-light" type="button"><a href="{{url_for('add_comment',task_id=tsk.Task_id,admin_id=tsk.a_id)}}">Task Comment</a></button></td>
+                <td><button class="btn btn-light" type="button"><a href="{{url_for('add_comment',task_id=tsk.Task_id,admin_id=tsk.a_id)}}">Add Comment</a></button></td>
                 <td><button class="btn btn-light" type="button"><a href="{{url_for('assign_task',task_id=tsk.Task_id,project_id=tsk.T_P_id)}}">Assign Task</a></button></td>
                 <td><button class="btn btn-light" type="button"><a href="{{url_for('comment',task_id=tsk.Task_id,admin_id=tsk.a_id)}}">View Comments</a></button></td>
 
