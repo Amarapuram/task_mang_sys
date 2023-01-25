@@ -3,7 +3,6 @@
 {% block title %}Task Management{% endblock %}
 
 {% block content %}
-<button class="btn btn-light home_button" type="button"><a href="{{url_for('home',admin_id=admin_id)}}">Home</a></button>
     <section>
         <h1 class="heading">Comments</h1>
         <div class="table-responsive project_table">
@@ -25,8 +24,8 @@
                         <td>{{cmt.C_to}}</td>
                         <td>{{cmt.C_time}}</td>
                         <td>{{cmt.C_text}}</td>
-                        <td><button class="btn btn-warning" type="button"><a href="{{url_for('add_comment',task_id=cmt.Task_id )}}">Add</a></button></td>
-                        <td><button class="btn btn-warning" type="button"><a href="{{url_for('delete_comment',task_id=cmt.Task_id,Comment_id = cmt.C_id)}}">Delete</a></button></td>
+                        <td><button class="btn btn-warning" type="button"><a href="{{url_for('user_add_comment',task_id=cmt.Task_id,user_id=cmt.user_id )}}">Add</a></button></td>
+                        <td><button class="btn btn-warning" type="button"><a href="{{url_for('user_delete_comment',task_id=cmt.Task_id,Comment_id = cmt.C_id)}}">Delete</a></button></td>
                     </tr>
                     {% endfor %}
                 </tbody>

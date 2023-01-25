@@ -3,7 +3,6 @@
 {% block title %}Task Management{% endblock %}
 
 {% block content %}
-<button class="btn btn-light home_button" type="button"><a href="{{url_for('home',admin_id=admin_id)}}">Home</a></button>
 <h1 class="form_heading">User Update</h1>
 <form method="POST" action="{{url_for('update_user',admin_id=user.U_a_id,user_id=user.U_id)}}">
     <div class="row">

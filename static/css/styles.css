@@ -137,6 +137,7 @@ body{
     margin-right: 2rem;
 }
 .assign_task_page{
+    border-radius:10%;
     margin: 20rem;
     margin-bottom: 5rem;
     background-color: rgb(119, 186, 31);

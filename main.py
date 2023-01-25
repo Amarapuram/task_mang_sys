@@ -248,6 +248,7 @@ def comment(admin_id, task_id):
 @app.route("/admin/projects/tasks/<task_id>/comment/add",methods=["GET","POST"])
 def add_comment(task_id):
     cur = mysql.connection.cursor()
+    admin_id = session.get("id")
     if request.method == "POST":
         C_by = request.form.get("C_by")
         C_to = request.form.get("C_to")
@@ -290,7 +291,7 @@ def user_task():
     user_id = session.get("id")
     cur.execute(f"SELECT * FROM task,user_task,user WHERE task.Task_id = user_task.Task_id AND user.U_id=user_task.U_id AND user.U_id={user_id}")
     project = cur.fetchall()
-    return render_template("User/user_tasks.html",project=project,user_id=user_id)
+    return render_template("User/user_tasks.html",project=project)
 #user_task_update
 
 @app.route("/user/project/task/update/<int:task_id>",methods=["GET","POST"])
@@ -329,9 +330,10 @@ def user_add_comment(task_id):
 @app.route("/user/projects/tasks/<task_id>/delete/comment/<int:Comment_id>",methods=["GET"])
 def user_delete_comment(task_id,Comment_id):
     cur = mysql.connection.cursor()
-    cur.execute(f"DELETE from commments where Task_id= {task_id} AND C_id ={Comment_id}")
+    user_id = session.get("id")
+    cur.execute(f"DELETE from comments where Task_id= {task_id} AND C_id ={Comment_id} AND U_id={user_id}")
     mysql.connection.commit()
-    return redirect(url_for("user_comment"))
+    return redirect(url_for("user_comment",task_id=task_id,Comment_id=Comment_id,user_id=user_id))
 
 #login-Register-logout
 @app.route('/login', methods=["GET", "POST"])

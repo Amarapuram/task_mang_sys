@@ -2,7 +2,6 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
-<button class="btn btn-light home_button" type="button"><a href="{{url_for('home',admin_id=admin_id)}}">Home</a></button>
     <h1 class="form_heading">Admin Update</h1>
         <form method="POST" action="{{url_for('update_admin',admin_id=admin.a_id)}}">
         <div class="row">
