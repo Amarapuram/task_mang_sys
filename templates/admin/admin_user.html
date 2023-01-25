@@ -14,6 +14,7 @@
                     <th>password</th>
                     <th>Status</th>
                     <th>Gender</th>
+                    <th>Task List</th>
                     <th>Update User</th>
                     <th>Delete User</th>
 
@@ -27,6 +28,7 @@
                     <td>{{usr.U_password}}</td>
                     <td>{{usr.U_status}}</td>
                     <td>{{usr.U_gender}}</td>
+                    <td><a href="{{url_for('tasklist',user_id = usr.U_id)}}">Link</a></td>
                     <td><button class="btn btn-light" type="button"><a href="{{url_for('update_user',admin_id=usr.U_a_id,user_id =usr.U_id )}}">Update</a></button></td>
                     <td><button class="btn btn-light" type="button"><a href="{{url_for('delete_user',admin_id=usr.U_a_id,user_id=usr.U_id)}}">Delete</a></button></td>
                 </tr>

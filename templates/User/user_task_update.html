@@ -4,11 +4,15 @@
 
 {% block content %}
 <h1 class="heading"> Update Task</h1>
+    <h2>Current status is {{tsk.T_status}}</h2>
     <form method="POST" action="{{url_for('user_update_task',task_id=tsk.Task_id)}}">
         <div class="row">
             <div class="col">
-                <input class="form-control task_form" name="T_status" type="text" placeholder="Status:"value="{{tsk.T_status}}"  >
-
+                <select name="T_status">
+                    <option value="Assigned">Assigned</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Completed">Completed</option>
+                  </select>
             </div>
         </div>
         <div class="submit">

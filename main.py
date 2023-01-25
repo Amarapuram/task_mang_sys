@@ -1,6 +1,6 @@
 from flask_mysqldb import MySQL
-from flask import Flask, request,render_template,redirect,url_for,session,abort
-
+from flask import Flask, request,render_template,redirect,url_for,session,abort,flash
+from datetime import datetime,date
 from flask_session import Session
 from functools import wraps
 app = Flask(__name__)
@@ -68,7 +68,6 @@ def update_admin(admin_id):
         a_name = request.form.get("name")
         a_email = request.form.get("email")
         a_status = request.form.get("status")
-        # U_image = request.form.get("U_image")
         a_gender = request.form.get("gender")
         cur.execute("UPDATE admin SET a_name = %s,a_email = %s,a_status =%s,a_gender=%s WHERE a_id = %s",(a_name,a_email,a_status,a_gender,admin_id))
         mysql.connection.commit()
@@ -89,14 +88,12 @@ def users():
 
 @app.route("/admin/user/add",methods=["GET","POST"])
 def add_user():
-    # register_form = RegisterForm()
     cur = mysql.connection.cursor()
     if request.method == "POST":
         U_name = request.form.get("name")
         U_email = request.form.get("email")
         U_password = request.form.get("password")
         U_status = request.form.get("status")
-        # U_image = request.form.get("U_image")
         U_gender = request.form.get("gender")
         admin_id = session.get("id")
         cur.execute("INSERT INTO user (U_name,U_email,U_password,U_status,U_gender,U_a_id) VALUES (%s,%s,%s,%s,%s,%s)",(U_name,U_email,U_password,U_status,U_gender,admin_id))
@@ -111,7 +108,6 @@ def update_user(user_id,admin_id):
         U_name = request.form.get("name")
         U_email = request.form.get("email")
         U_status = request.form.get("status")
-        # U_image = request.form.get("U_image")
         U_gender = request.form.get("gender")
         cur.execute("UPDATE user SET U_name = %s,U_email = %s,U_status =%s,U_gender=%s WHERE U_id = %s AND U_a_id=%s",(U_name,U_email,U_status,U_gender,user_id,admin_id))
         mysql.connection.commit()
@@ -134,10 +130,9 @@ def project():
     cur.execute(f"SELECT * from project WHERE a_id={admin_id}")
     projects=cur.fetchall()
     return render_template("admin/projects_disp.html",projects=projects)
-#??
+#ADMIN PROJECT
 @app.route("/admin/project/add/",methods=["GET","POST"])
 def add_project():
-    # register_form = RegisterForm()
     cur = mysql.connection.cursor()
     admin_id = session.get("id")
     if request.method == "POST":
@@ -186,9 +181,14 @@ def add_task(admin_id,project_id):
         T_name = request.form.get("name")
         T_deadline = request.form.get("deadline")
         T_status = request.form.get("status")
-        cur.execute("INSERT INTO task (T_name,T_deadline,T_status,T_P_id,a_id) VALUES (%s,%s,%s,%s,%s)",(T_name,T_deadline,T_status,project_id,admin_id))
-        mysql.connection.commit()
-        return redirect(url_for("project"))
+        deadlineDate = datetime.strptime(T_deadline,"%Y-%m-%d").date()
+        startDate = date.today()
+        if deadlineDate>=startDate:
+            cur.execute("INSERT INTO task (T_name,T_deadline,T_status,T_P_id,a_id) VALUES (%s,%s,%s,%s,%s)",(T_name,T_deadline,T_status,project_id,admin_id))
+            mysql.connection.commit()
+            return redirect(url_for("project"))
+        else:
+            flash("<DEADLINE MSG>")
     return render_template("admin/add_task.html",project_id=project_id,admin_id=admin_id)
 
 @app.route("/admin/assign/<int:task_id>",methods=["GET","POST"])
@@ -389,6 +389,20 @@ def admin_register():
         return redirect(url_for("home"))
     return render_template("auth/admin_register.html")
 
+
+@app.route("/tasklist")
+def tasklist():
+    cur = mysql.connection.cursor()
+    user_id = request.args.get("user_id")
+    if not user_id:
+        user_id = session.get("id")
+    cur.execute(f"SELECT * from task,user_task where T_Status = 'Completed' and task.Task_id=user_task.Task_id  and user_task.U_id={user_id}")
+    completed_tasks = cur.fetchall()
+    cur.execute(f"SELECT * from task,user_task where T_Status = 'In Progress' and task.Task_id=user_task.Task_id  and user_task.U_id={user_id}")
+    inprogress_tasks = cur.fetchall()
+    cur.execute(f"SELECT * from task,user_task where T_Status = 'Assigned' and task.Task_id=user_task.Task_id  and user_task.U_id={user_id} ")
+    assigned_tasks = cur.fetchall()
+    return render_template("User/user_task_list.html",completed_tasks=completed_tasks,inprogress_tasks=inprogress_tasks,assigned_tasks=assigned_tasks)
+
 if __name__ == '__main__':
     app.run(debug=True)
-    
