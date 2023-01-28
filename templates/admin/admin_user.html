@@ -11,7 +11,7 @@
                 <tr>
                     <th>user Name</th>
                     <th>Email</th>
-                    <th>password</th>
+                    <!-- <th>password</th> -->
                     <th>Status</th>
                     <th>Gender</th>
                     <th>Task List</th>
@@ -25,10 +25,10 @@
                 <tr class="table_row">
                      <td>{{usr.U_name}}</td>
                     <td>{{usr.U_email}}</td>
-                    <td>{{usr.U_password}}</td>
+                    <!-- <td>{{usr.U_password}}</td> -->
                     <td>{{usr.U_status}}</td>
                     <td>{{usr.U_gender}}</td>
-                    <td><a href="{{url_for('tasklist',user_id = usr.U_id)}}">Link</a></td>
+                    <td><button class="btn btn-light" type="button"><a href="{{url_for('tasklist',user_id = usr.U_id)}}">User Tasks Info</a></button></td>
                     <td><button class="btn btn-light" type="button"><a href="{{url_for('update_user',admin_id=usr.U_a_id,user_id =usr.U_id )}}">Update</a></button></td>
                     <td><button class="btn btn-light" type="button"><a href="{{url_for('delete_user',admin_id=usr.U_a_id,user_id=usr.U_id)}}">Delete</a></button></td>
                 </tr>

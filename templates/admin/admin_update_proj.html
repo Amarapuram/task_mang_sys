@@ -18,8 +18,13 @@
     </div>
     <div class="row">
         <div class="col">
-            <input class="form-control task_form" name="P_status" type="text" placeholder="Deadline:" value="{{proj.P_status}}" >
-
+           <p class="para1">Status:
+             <select class="list_dropdown" name="T_status">
+                <option value="Assigned">Assigned</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
+              </select>
+            </p> 
         </div>
     </div>
     <div class="submit">

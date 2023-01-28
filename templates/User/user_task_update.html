@@ -4,19 +4,24 @@
 
 {% block content %}
 <h1 class="heading"> Update Task</h1>
-    <h2>Current status is {{tsk.T_status}}</h2>
-    <form method="POST" action="{{url_for('user_update_task',task_id=tsk.Task_id)}}">
-        <div class="row">
-            <div class="col">
-                <select name="T_status">
-                    <option value="Assigned">Assigned</option>
-                    <option value="In Progress">In Progress</option>
-                    <option value="Completed">Completed</option>
-                  </select>
+    <form  method="POST" action="{{url_for('user_update_task',task_id=tsk.Task_id)}}">
+        <h2 class="heading2">Current status of Task is "{{tsk.T_status}}"</h2>
+        <div class="dropdown">
+            <div class="row ">
+                <div class="col">
+                    <p class="para1">Status:
+                        <select class="list_dropdown" name="T_status">
+                           <option value="Assigned">Assigned</option>
+                           <option value="In Progress">In Progress</option>
+                           <option value="Completed">Completed</option>
+                         </select>
+                       </p> 
+                </div>
             </div>
         </div>
-        <div class="submit">
-                <button class="btn btn-dark submit_button" type="submit">Submit</button>            
+        
+        <div class="submit submit_button1">
+                <button class="btn btn-dark list_button" type="submit">Submit</button>            
         </div>
     </form>
 {% endblock %}

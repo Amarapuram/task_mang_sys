@@ -222,9 +222,14 @@ def update_task(project_id,task_id):
         T_date = request.form.get("T_date")
         T_deadline = request.form.get("T_deadline")
         T_status = request.form.get("T_status")
-        cur.execute("UPDATE task SET T_name = %s,T_date = %s,T_deadline =%s,T_status=%s WHERE T_P_id = %s AND Task_id = %s",(T_name,T_date,T_deadline,T_status,project_id,task_id))
-        mysql.connection.commit()
-        return redirect(url_for("task",project_id=project_id))
+        deadlineDate = datetime.strptime(T_deadline,"%Y-%m-%d").date()
+        startDate = date.today()
+        if deadlineDate>=startDate:
+            cur.execute("UPDATE task SET T_name = %s,T_date = %s,T_deadline =%s,T_status=%s WHERE T_P_id = %s AND Task_id = %s",(T_name,T_date,T_deadline,T_status,project_id,task_id))
+            mysql.connection.commit()
+            return redirect(url_for("task",project_id=project_id))
+        else:
+            flash("Dealine Date cannot be before the Start Date")
     cur.execute(f"SELECT * FROM task where Task_id = {task_id} AND T_P_id = {project_id}")
     tsk = cur.fetchone()   
     return render_template("admin/task_update.html",tsk=tsk)
