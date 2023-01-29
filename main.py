@@ -255,7 +255,9 @@ def add_comment(task_id):
     cur = mysql.connection.cursor()
     admin_id = session.get("id")
     if request.method == "POST":
-        C_by = request.form.get("C_by")
+        cur.execute(f"SELECT a_name from admin where a_id = {admin_id}")
+        name = cur.fetchone()["a_name"]
+        C_by = name
         C_to = request.form.get("C_to")
         C_time = request.form.get("C_time")
         C_text = request.form.get("C_text")
@@ -323,7 +325,9 @@ def user_add_comment(task_id):
     cur = mysql.connection.cursor()
     user_id = session.get("id")
     if request.method == "POST":
-        C_by = request.form.get("C_by")
+        cur.execute(f"SELECT U_name from user where U_id = {user_id}")
+        name = cur.fetchone()["U_name"]
+        C_by = name
         C_to = request.form.get("C_to")
         C_time = request.form.get("C_time")
         C_text = request.form.get("C_text")
@@ -385,7 +389,6 @@ def admin_register():
         a_email = request.form.get("email")
         a_password = request.form.get("password")
         a_status = request.form.get("status")
-        # U_image = request.form.get("U_image")
         a_gender = request.form.get("gender")
 
 
